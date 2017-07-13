@@ -27,7 +27,7 @@ var qTitle = getQueryTitle();
 if (command === "my-tweets"){
 
 	grabTweets();
-	log(`
+	logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -35,13 +35,13 @@ COMMAND: node liri ${[command]}
 ======================================================================
 		`);
 
-} 
+}
 else if (command === "spotify-this-song"){
 
 	if(qTitle){
 
 		grabSongs(qTitle);
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]} ${[qTitle]}
@@ -52,7 +52,7 @@ COMMAND: node liri ${[command]} ${[qTitle]}
 	} else {
 
 		grabSongs("The Sign Ace of Base");
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -68,7 +68,7 @@ else if (command === "movie-this"){
 	if(qTitle){
 
 		grabMovie(qTitle);
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]} ${[qTitle]}
@@ -79,7 +79,7 @@ COMMAND: node liri ${[command]} ${[qTitle]}
 	} else {
 
 		grabMovie("Mr. Nobody");
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -110,7 +110,7 @@ else if (command === "do-what-it-says"){
 
 		if (dataArr[0] === "spotify-this-song"){
 			grabSongs(dataArr[1]);
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -119,7 +119,7 @@ COMMAND: node liri ${[command]}
 			`);
 		} else if (dataArr[0] === "movie-this"){
 			grabMovie(dataArr[1]);
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -128,7 +128,7 @@ COMMAND: node liri ${[command]}
 			`);
 		} else if (dataArr[0] === "my-tweets"){
 			grabTweets();
-		log(`
+		logger(`
 ======================================================================
 
 COMMAND: node liri ${[command]}
@@ -139,7 +139,7 @@ COMMAND: node liri ${[command]}
 			console.log("Something went wrong. Check random.txt file.")
 		}
 
-		
+
 
 	});
 
@@ -175,7 +175,7 @@ function grabTweets(){
  ======================================================================
 	    		`;
 	    		console.log(tweet);
-	    		log(tweet);
+	    		logger(tweet);
 	    }
 	  } else{
 	  	console.log(error);
@@ -205,11 +205,11 @@ function grabSongs(song){
  Album: ${[trackListing[i].album.name]}
 
  ======================================================================
-				`; 
+				`;
 			console.log(trackInfo);
-			log(trackInfo);
+			logger(trackInfo);
 	 	}
-	  
+
 	});
 
 }
@@ -244,7 +244,7 @@ function grabMovie(movie){
  ======================================================================
 				`;
 				console.log(movieInfo);
-				log(movieInfo);
+				logger(movieInfo);
 		}
 
 	}
@@ -267,7 +267,7 @@ function getQueryTitle(){
 
 // Log to log.txt file
 
-function log(logdata){
+function logger(logdata){
 
 	fs.appendFile("log.txt", logdata, function(error){
 
@@ -277,4 +277,3 @@ function log(logdata){
 
 	})
 }
-
