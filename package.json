@@ -1,0 +1,24 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "A command line tool that fetches data using the Twitter, Spotify, and OMDB API's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SavSamoylov/LIRI.git"
+  },
+  "author": "Sav Samoylov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SavSamoylov/LIRI/issues"
+  },
+  "homepage": "https://github.com/SavSamoylov/LIRI#readme",
+  "dependencies": {
+    "node-spotify-api": "^1.0.5",
+    "request": "^2.81.0",
+    "twitter": "^1.7.1"
+  }
+}
