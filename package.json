@@ -19,6 +19,7 @@
   "dependencies": {
     "node-spotify-api": "^1.0.5",
     "request": "^2.81.0",
+    "stock-fetcher": "0.0.7",
     "twitter": "^1.7.1"
   }
 }

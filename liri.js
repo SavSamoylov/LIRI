@@ -2,6 +2,7 @@
 var Twitter = require("twitter");
 var Spotify = require('node-spotify-api');
 var request = require('request');
+var stockFetcher = require("stock-fetcher");
 var fs = require('fs');
 var k = require("./keys.js");
 
@@ -76,7 +77,8 @@ COMMAND: node liri ${[command]} ${[qTitle]}
 ======================================================================
 			`);
 
-	} else {
+} 
+else {
 
 		grabMovie("Mr. Nobody");
 		logger(`
@@ -88,6 +90,19 @@ COMMAND: node liri ${[command]}
 			`);
 
 	}
+
+}
+else if (command === "this-stock"){
+
+	  grabStock(qTitle);
+	  logger(`
+======================================================================
+
+COMMAND: node liri ${[command]} ${[qTitle]}
+
+======================================================================
+			`);
+
 
 }
 else if (command === "do-what-it-says"){
@@ -151,6 +166,7 @@ COMMAND: node liri ${[command]}
 		- my-tweets
 		- spotify-this-song <SONG TITLE>
 		- movie-this <MOVIE TITLE>
+		- this-stock <STOCK SYMBOL AAPL>
 		- do-what-it-says
 
 		`)
@@ -250,6 +266,30 @@ function grabMovie(movie){
 	}
 
 	);
+}
+
+function grabStock(stock){
+
+	stockFetcher.getPrice(stock, function(err, price){
+	  
+	  if(err){
+	  	console.log(err);
+	  }
+
+	  var stockInfo = `
+ ======================================================================
+
+ STOCK: ${[stock]}
+
+ PRICE: ${[price]}
+
+ ======================================================================
+	  `;
+	  console.log(stockInfo);
+	  logger(stockInfo);
+
+    });
+ 
 }
 
 // getQueryTitle() allows the user to search for multi-word titles.
