@@ -26,12 +26,22 @@ var qTitle = getQueryTitle();
 //==============================================//
 
 if (command === "my-tweets"){
+	
+	if (qTitle){
 
-	grabTweets();
+		grabTweets(qTitle);
+
+	}
+	else{
+
+		grabTweets("SavTemp");
+
+	}
+
 	logger(`
 ======================================================================
 
-COMMAND: node liri ${[command]}
+COMMAND: node liri ${[command]} ${[qTitle]}
 
 ======================================================================
 		`);
@@ -142,7 +152,7 @@ COMMAND: node liri ${[command]}
 ======================================================================
 			`);
 		} else if (dataArr[0] === "my-tweets"){
-			grabTweets();
+			grabTweets(dataArr[1]);
 		logger(`
 ======================================================================
 
@@ -174,9 +184,9 @@ COMMAND: node liri ${[command]}
 
 //==============================================//
 
-function grabTweets(){
+function grabTweets(username){
 
-	var params = {screen_name: 'SavTemp'};
+	var params = {screen_name: username};
 	tKeys.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  if (!error) {
 	    console.log(" Here are the latest tweets from " + params.screen_name);

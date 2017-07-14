@@ -1,15 +1,16 @@
-# LIRI 
-## (Language Interpretation and Recognition Interface)
+# LIRI (Language Interpretation and Recognition Interface)
 
 **LIRI** is a simple command line tool that takes the users input and returns relevant information.
+
 
 ### Commands
 
 This version of **LIRI** answers to five unique commands and returns relevant data.
 
 The commands are:
+
 ```
-node liri my-tweets 
+node liri my-tweets <TWITTER USERNAME>
 
 node liri spotify-this-song <SONG TITLE>
 
@@ -21,11 +22,12 @@ node liri do-what-it-says
 
 ```
 
+
 ## Examples
 
 ### Example 1 (my-tweets)
 
-Will fetch my last 20 tweets. I might expand this to fetch the last 20 tweets of any twitter user.
+Will fetch the last 20 tweets of the user-name provided. By default will fetch my Tweets.
 
 Input:
 
@@ -49,7 +51,7 @@ Output
 
 ### Example 2 (spotify-this-song)
 
-Will fetch up to 10 songs from Spotify matching the title given.
+Will fetch up to 10 songs from Spotify matching the title given. By default will fetch "The Sign" by Ace of Base.
 
 Input:
 
@@ -76,7 +78,7 @@ Output:
 
 ### Example 3 (movie-this)
 
-Will fetch relevant film data from the OMDB database.
+Will fetch relevant film data from the OMDB database. By default will fetch "Mr. Nobody".
 
 Input:
 
