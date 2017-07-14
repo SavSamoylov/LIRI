@@ -32,7 +32,7 @@ Will fetch the last 20 tweets of the user-name provided. By default will fetch m
 Input:
 
 ```
-node liri my-tweets
+node liri my-tweets <TWITTER USERNAME>
 
 ```
 
