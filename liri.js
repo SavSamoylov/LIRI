@@ -22,6 +22,7 @@ var sKeys = new Spotify ({
 
 var command = process.argv[2];
 var qTitle = process.argv.slice(3).join(" ");
+console.log(qTitle);
 
 //==============================================//
 
@@ -173,7 +174,7 @@ COMMAND: node liri ${[command]}
 
 		This is not a recognized command. Please use one of the following:
 
-		- my-tweets
+		- my-tweets <TWITTER USERNAME>
 		- spotify-this-song <SONG TITLE>
 		- movie-this <MOVIE TITLE>
 		- this-stock <STOCK SYMBOL AAPL>
