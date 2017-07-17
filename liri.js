@@ -21,7 +21,7 @@ var sKeys = new Spotify ({
 //==============================================//
 
 var command = process.argv[2];
-var qTitle = getQueryTitle();
+var qTitle = process.argv.slice(3).join(" ");
 
 //==============================================//
 
@@ -304,16 +304,18 @@ function grabStock(stock){
 
 // getQueryTitle() allows the user to search for multi-word titles.
 
-function getQueryTitle(){
+// Now replaced with process.argv.slice(3).join(" ");
 
-	var queryTitle = [];
+// function getQueryTitle(){
 
-	for (var i = 3; i < process.argv.length; i++) {
-		queryTitle.push(process.argv[i]);
-	}
+// 	var queryTitle = [];
 
-	return queryTitle.join("+");
-}
+// 	for (var i = 3; i < process.argv.length; i++) {
+// 		queryTitle.push(process.argv[i]);
+// 	}
+
+// 	return queryTitle.join("+");
+// }
 
 // Log to log.txt file
 
